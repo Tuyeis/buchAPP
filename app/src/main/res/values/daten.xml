@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name = "bild_texte">
+        <item>Eins_Buch</item>
+        <item>Zwei_Buch</item>
+        <item>Drei_Buch</item>
+        <item>Vier_Buch</item>
+        <item>Fünf_Buch</item>
+        <item>Sechs_Buch</item>
+    </string-array>
+</resources>
