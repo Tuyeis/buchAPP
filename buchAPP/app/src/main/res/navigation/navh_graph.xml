@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/blankFragment">
+
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="com.example.buchapp.ui.fragments.main.BlankFragment"
+        android:label="BlankFragment" >
+        <action
+            android:id="@+id/action_blankFragment_to_registFragment"
+            app:destination="@id/registFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registFragment"
+        android:name="com.example.buchapp.ui.fragments.main.RegistFragment"
+        android:label="fragment_regist"
+        tools:layout="@layout/fragment_regist" >
+        <action
+            android:id="@+id/action_registFragment_to_blankFragment"
+            app:destination="@id/blankFragment" />
+    </fragment>
+</navigation>
