@@ -10,16 +10,16 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/iv_book_cover"
+            android:id="@+id/book_cover"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/eins_buch"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
-            />
+           />
 
         <TextView
-            android:id="@+id/tv_title"
+            android:id="@+id/book_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Título del libro"
@@ -48,38 +48,13 @@
             android:paddingBottom="16dp" />
 
         <Button
-            android:id="@+id/btn_search_book"
+            android:id="@+id/read_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Leer libro"
             android:textSize="18sp"
             android:textStyle="bold"
             android:padding="16dp" />
-        <EditText
-            android:id="@+id/et_search_book"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/search_hint"
-            android:inputType="text"
-            android:maxLength="50"
-            android:maxLines="1" />
-
-        <TextView
-            android:id="@+id/BookNumberED"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Introduzca numero"
-            android:textSize="16sp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="16dp" />
-        <EditText
-            android:id="@+id/nummerBook"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/search_hint"
-            android:inputType="number"
-            android:maxLength="50"
-            android:maxLines="1" />
 
         <Button
             android:id="@+id/buy_button"

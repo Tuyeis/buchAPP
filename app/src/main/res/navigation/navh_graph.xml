@@ -22,9 +22,4 @@
             android:id="@+id/action_registFragment_to_blankFragment"
             app:destination="@id/blankFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.buchapp.ui.fragments.liste.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
 </navigation>

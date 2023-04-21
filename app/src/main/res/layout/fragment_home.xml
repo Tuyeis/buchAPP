@@ -4,4 +4,6 @@
     android:id="@+id/element_List"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.liste.HomeFragment" />
+    tools:context=".ui.fragments.liste.HomeFragment" >
+
+</androidx.recyclerview.widget.RecyclerView>

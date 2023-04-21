@@ -13,4 +13,11 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="nombreelemento">NombreElemento</string>
+    <string name="cualidad_elemento">Cualidad elemento</string>
+    <string name="search_book_title" />
+    <string name="book_cover_description" />
+    <string name="search_button" />
+    <string name="search_hint" />
+    <string name="title_activity_retrofir">Retrofir</string>
 </resources>

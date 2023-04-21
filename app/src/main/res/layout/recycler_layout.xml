@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/black">
 
         <ImageView
             android:id="@+id/Iv_recycler"
             android:layout_width="200dp"
             android:layout_height="200dp"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <LinearLayout
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_element_name"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:gravity="center_horizontal"
+            android:text="@string/cualidad_elemento"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/tv_element_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="NombreElemento" />
-
-            <TextView
-                android:id="@+id/tv_element_cual"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Cualidad elemento" />
-        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
