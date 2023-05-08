@@ -1,34 +1,35 @@
-package com.example.buchapp.ui.API
+package com.example.buchapp.API
 
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import com.example.buchapp.ui.data.BuchMemoDatasource
+import com.example.buchapp.data.BuchMemoDatasource
+import com.example.buchapp.models.Buchern
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.json.JSONArray
 import org.json.JSONObject
 
-class Api(buchName: String,buchNummer: Int,context: Context?) {
+class Api(buchName: String, buchNummer: Int, context: Context?) {
 
 
-    private val db : BuchMemoDatasource? = context?.let { BuchMemoDatasource(it) }
-    private val gson = Gson()
+    private val db: BuchMemoDatasource? = context?.let { BuchMemoDatasource(it) }
+
     private val buchName: String = buchName
     private val buchNummer: Int = buchNummer
+
+    private val gson = Gson()
     private val client = OkHttpClient()
-    private lateinit var Arrayisbn : JSONArray
+    private val imageCache = mutableMapOf<String, Bitmap>()
 
 
     fun getBuchern(): Buchern {
 
         // aqui buscamos de forma sencilla un libro por su id y devolvemos  lel objeto buch
 
-        val id_buch = searchBuchern(buchName,buchNummer)
-
+        val id_buch = searchBuchern()
         val request = Request.Builder()
             .url("https://openlibrary.org/works/$id_buch.json")
             .build()
@@ -37,51 +38,42 @@ class Api(buchName: String,buchNummer: Int,context: Context?) {
 
         return gson.fromJson(responseBody, Buchern::class.java)
     }
-    fun getJsonByString(): String?{
-
-        // aqui buscamos de forma sencilla un libro por su id y devolvemos  lel objeto buch
-
-        val id_buch = searchBuchern(buchName,buchNummer)
-
-        val request = Request.Builder()
-            .url("https://openlibrary.org/works/$id_buch.json")
-            .build()
-        val response = client.newCall(request).execute()
-        val responseBody = response.body?.string()
-
-        return responseBody
-    }
-
-
-    fun searchBuchern(buchName: String, buchNummer:Int): String? {
-        // con esta opcion buscamos dentro de seed la id del libro que queremos
-        val buchid: String? = db!!.getIdlibro(buchName)
-        if (buchid != buchName) {
-            return buchid
-        }
+    fun arraySize():Int{
         val request = Request.Builder()
             .url("https://openlibrary.org/search.json?q=$buchName&lang=eng")
             .build()
         val response = client.newCall(request).execute()
         val responseBody = response.body?.string()
-        val jsonObject = JSONObject(responseBody)
+        val jsonObject = responseBody?.let { JSONObject(it) }
+
+        // seed esta dentro de docs por lo que primero hay que sacar el array dosc y luego dentro seed
+        val seedArray = jsonObject?.getJSONArray("docs")?.getJSONObject(0)?.getJSONArray("seed")
+
+        return seedArray!!.length()
+
+    }
+
+    fun searchBuchern(): String? {
+        val request = Request.Builder()
+            .url("https://openlibrary.org/search.json?q=$buchName&lang=eng")
+            .build()
+        val response = client.newCall(request).execute()
+        val responseBody = response.body?.string()
+        val jsonObject = responseBody?.let { JSONObject(it) }
 
         // Si el JSON no tiene los campos esperados, devuelve nulo
-        if (!jsonObject.has("docs") || jsonObject.getJSONArray("docs").length() == 0) {
+        if (!jsonObject!!.has("docs") || jsonObject.getJSONArray("docs").length() == 0) {
             return "No hay libro"
         }
 
         // seed esta dentro de docs por lo que primero hay que sacar el array dosc y luego dentro seed
         val seedArray = jsonObject.getJSONArray("docs").getJSONObject(0).getJSONArray("seed")
-        Arrayisbn = jsonObject.getJSONArray("docs").getJSONObject(0).getJSONArray("isbn")
-
         return seedArray.getString(buchNummer).substring(7)
     }
 
-    private val imageCache = mutableMapOf<String, Bitmap>()
 
     suspend fun getImageFromId(): Bitmap? = withContext(Dispatchers.IO) {
-        val bookId = searchBuchern(buchName,buchNummer)
+        val bookId = searchBuchern()
         val imageUrl = "https://covers.openlibrary.org/b/olid/$bookId-M.jpg"
 
         // Primero, comprobamos si la imagen ya está en caché
@@ -98,15 +90,6 @@ class Api(buchName: String,buchNummer: Int,context: Context?) {
         }
     }
 
-
-    data class Buchern(
-        val title: String?,
-        val description: String?,
-        val authors: authors?
-    )
-    data class authors(
-     val key: String?
-    )
 
 
 }

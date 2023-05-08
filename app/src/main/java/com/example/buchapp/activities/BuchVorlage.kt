@@ -1,9 +1,9 @@
-package com.example.buchapp.ui.activities
+package com.example.buchapp.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.buchapp.databinding.ActivityBuchVorlageBinding
-import com.example.buchapp.ui.models.Buch
+import com.example.buchapp.models.Buch
 
 
 class BuchVorlage : AppCompatActivity() {
@@ -21,7 +21,6 @@ class BuchVorlage : AppCompatActivity() {
 
             it.ImageResource?.let { it1 -> binding.bookCover.setImageResource(it1) }
             binding.bookAuthor.text = it.autor
-            binding.bookSynopsis.text = it.sinopsis
             binding.bookTitle.text = it.titulo
         }
 

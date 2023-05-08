@@ -22,7 +22,7 @@
             android:id="@+id/book_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Título del libro"
+            android:text="@string/Book_Tittle"
             android:textStyle="bold"
             android:textSize="24sp"
             android:padding="16dp" />
@@ -31,47 +31,12 @@
             android:id="@+id/book_author"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Autor del libro"
+            android:text="@string/Info_author"
             android:textSize="16sp"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:paddingBottom="8dp" />
 
-        <TextView
-            android:id="@+id/book_synopsis"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sinopsis del libro"
-            android:textSize="16sp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="16dp" />
-
-        <Button
-            android:id="@+id/read_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Leer libro"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:padding="16dp" />
-
-        <Button
-            android:id="@+id/buy_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Comprar libro"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:padding="16dp" />
-
-        <EditText
-            android:id="@+id/comment_box"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Deja un comentario"
-            android:inputType="text"
-            android:padding="16dp" />
 
     </LinearLayout>
 

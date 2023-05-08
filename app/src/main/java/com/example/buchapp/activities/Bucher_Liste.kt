@@ -1,4 +1,4 @@
-package com.example.buchapp.ui.activities
+package com.example.buchapp.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,10 +6,10 @@ import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.example.buchapp.R
 import com.example.buchapp.databinding.ActivityBucherListeBinding
-import com.example.buchapp.ui.fragments.liste.FavoritsFragment
-import com.example.buchapp.ui.fragments.liste.HomeFragment
-import com.example.buchapp.ui.fragments.liste.MailFragment
-import com.example.buchapp.ui.fragments.liste.SearchFragment
+import com.example.buchapp.fragments.liste.ForumFragment
+import com.example.buchapp.fragments.liste.HomeFragment
+import com.example.buchapp.fragments.liste.MailFragment
+import com.example.buchapp.fragments.liste.SearchFragment
 
 class Bucher_Liste : AppCompatActivity() {
 
@@ -34,7 +34,7 @@ class Bucher_Liste : AppCompatActivity() {
                 R.id.action_home-> HomeFragment()
                 R.id.action_search -> SearchFragment()
                 R.id.action_mail -> MailFragment()
-                R.id.action_favorits -> FavoritsFragment()
+                R.id.action_favorits -> ForumFragment()
                 else -> Fragment()
             }
             val transaction = supportFragmentManager.beginTransaction()

@@ -13,7 +13,7 @@
             android:id="@+id/iv_book_cover"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/eins_buch"
+            android:src="@drawable/books_main"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             />
@@ -22,36 +22,27 @@
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Título del libro"
+            android:text="@string/Book_Tittle"
             android:textStyle="bold"
             android:textSize="24sp"
             android:padding="16dp" />
 
-        <TextView
+        <Button
             android:id="@+id/book_author"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Autor del libro"
+            android:text="@string/Info_author"
             android:textSize="16sp"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:paddingBottom="8dp" />
-
-        <TextView
-            android:id="@+id/book_synopsis"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sinopsis del libro"
-            android:textSize="16sp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="16dp" />
 
         <Button
             android:id="@+id/btn_search_book"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
+            android:text="@string/Search_book"
             android:textStyle="bold"
             android:padding="16dp" />
         <EditText
@@ -67,7 +58,7 @@
             android:id="@+id/BookNumberED"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Introduzca numero"
+            android:text="@string/Book_Number"
             android:textSize="16sp"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
@@ -82,21 +73,19 @@
             android:maxLines="1" />
 
         <Button
-            android:id="@+id/buy_button"
+            android:id="@+id/url_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Comprar libro"
+            android:text="@string/Web_Search"
             android:textSize="18sp"
             android:textStyle="bold"
             android:padding="16dp" />
 
-        <EditText
-            android:id="@+id/comment_box"
+        <Button
+            android:id="@+id/buch_speichern"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Deja un comentario"
-            android:inputType="text"
-            android:padding="16dp" />
+            android:text="@string/Save_book" />
 
     </LinearLayout>
 

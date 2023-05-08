@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/blankFragment"
-        android:name="com.example.buchapp.ui.fragments.main.BlankFragment"
+        android:name="com.example.buchapp.fragments.main.BlankFragment"
         android:label="BlankFragment" >
         <action
             android:id="@+id/action_blankFragment_to_registFragment"
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/registFragment"
-        android:name="com.example.buchapp.ui.fragments.main.RegistFragment"
+        android:name="com.example.buchapp.fragments.main.RegistFragment"
         android:label="fragment_regist"
         tools:layout="@layout/fragment_regist" >
         <action

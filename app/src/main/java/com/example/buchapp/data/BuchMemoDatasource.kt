@@ -1,9 +1,8 @@
-package com.example.buchapp.ui.data
+package com.example.buchapp.data
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import com.example.buchapp.ui.API.Api
 
 
 class BuchMemoDatasource(context: Context) {
@@ -28,10 +27,10 @@ class BuchMemoDatasource(context: Context) {
             put(BuchDatabaseHelper.COLUMN_USUARIO_CONTRASENA, contrasena)
         }
         return database?.insert(BuchDatabaseHelper.TABLE_USUARIO, null, values) ?: -1
+
     }
     fun getUsuario(nombreUsuario: String, contrasena: String): Boolean {
         val db = dbHelper.readableDatabase
-
         val projection = arrayOf(BuchDatabaseHelper.COLUMN_ID_USUARIO)
         val selection = "${BuchDatabaseHelper.COLUMN_USUARIO_NOMBRE} = ? AND ${BuchDatabaseHelper.COLUMN_USUARIO_CONTRASENA} = ?"
         val selectionArgs = arrayOf(nombreUsuario, contrasena)
@@ -53,7 +52,30 @@ class BuchMemoDatasource(context: Context) {
 
         return existeUsuario
     }
+    fun getAllLibroIds(): Array<String> {
+        open()
+        val db = dbHelper.readableDatabase
+        val projection = arrayOf(BuchDatabaseHelper.COLUMN_LIBROS_ID_API)
+        val cursor = db.query(
+            BuchDatabaseHelper.TABLE_LIBROS,
+            projection,
+            null,
+            null,
+            null,
+            null,
+            null
+        )
+        val ids = mutableListOf<String>()
+        cursor.use { c ->
+            while (c.moveToNext()) {
+                val id = c.getString(c.getColumnIndexOrThrow(BuchDatabaseHelper.COLUMN_LIBROS_ID_API))
+                ids.add(id)
+            }
+        }
+        return ids.toTypedArray()
+    }
     fun getIdlibro(nombreLibro: String): String? {
+        open()
         val db = dbHelper.readableDatabase
         val projection = arrayOf(BuchDatabaseHelper.COLUMN_LIBROS_ID_API)
         val selection =  "${BuchDatabaseHelper.COLUMN_LIBROS_NOMBRE} = ?"
@@ -80,6 +102,7 @@ class BuchMemoDatasource(context: Context) {
         return idLibro
     }
     fun insertLibro(nombre: String, idApi: String): Long {
+        open()
         val values = ContentValues().apply {
             put(BuchDatabaseHelper.COLUMN_LIBROS_NOMBRE, nombre)
             put(BuchDatabaseHelper.COLUMN_LIBROS_ID_API, idApi)

@@ -1,4 +1,4 @@
-package com.example.buchapp.ui.data
+package com.example.buchapp.data
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase

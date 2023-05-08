@@ -1,4 +1,4 @@
-package com.example.buchapp.ui.fragments.liste
+package com.example.buchapp.fragments.liste
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,12 +9,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.buchapp.databinding.FragmentHomeBinding
-import com.example.buchapp.ui.models.Buch
-import com.example.buchapp.ui.activities.BuchVorlage
-import com.example.buchapp.ui.adapter.BuchListAdapter
+import com.example.buchapp.models.Buch
+import com.example.buchapp.activities.BuchVorlage
+import com.example.buchapp.adapter.BuchListAdapter
 
 
-class HomeFragment : Fragment(),BuchListAdapterListener {
+class HomeFragment : Fragment(), BuchListAdapterListener {
     private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
@@ -28,14 +28,11 @@ class HomeFragment : Fragment(),BuchListAdapterListener {
 
         return binding.root
     }
-
     override fun onBuchItemSelected(id: Long) {
         Toast.makeText(context, "$id", Toast.LENGTH_SHORT).show()
         val intent = Intent(activity, BuchVorlage:: class.java).apply { putExtra("buch_id",id) }
         startActivity(intent)
     }
-
-
 }
 interface BuchListAdapterListener {
     fun onBuchItemSelected(id: Long)

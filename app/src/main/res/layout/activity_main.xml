@@ -7,7 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.buchapp.ui.activities.MainActivity"
+    tools:context="com.example.buchapp.activities.MainActivity"
     android:background="#E8D8C3">
     <ImageView
         android:id="@+id/imageView"
@@ -23,6 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/books_main" />
 
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:layout_width="0dp"
@@ -35,7 +36,5 @@
         tools:layout="@layout/fragment_blank"
         android:name="androidx.navigation.fragment.NavHostFragment"
         app:navGraph="@navigation/navh_graph"/>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,23 +1,56 @@
 <resources>
-    <string name="app_name">buchApp</string>
+    <string name="app_name" translatable="false">buchApp</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="username_hint">Username</string>
-    <string name="register_button">Register</string>
-    <string name="title_activity_liste_bucher">Liste_Bucher</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="username_hint" translatable="false">Username</string>
+    <string name="register_button" translatable="false">Register</string>
+    <string name="title_activity_liste_bucher" translatable="false">Liste_Bucher</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
+    <string name="next" translatable="false">Next</string>
+    <string name="previous" translatable="false">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="nombreelemento">NombreElemento</string>
-    <string name="cualidad_elemento">Cualidad elemento</string>
-    <string name="search_book_title" />
-    <string name="book_cover_description" />
-    <string name="search_button" />
-    <string name="search_hint" />
-    <string name="title_activity_retrofir">Retrofir</string>
+
+    <string name="nombreelemento" translatable="false">NombreElemento</string>
+    <string name="cualidad_elemento" translatable="false">Cualidad elemento</string>
+    <string name="search_book_title" translatable="false" />
+    <string name="book_cover_description" translatable="false" />
+    <string name="search_button" translatable="false" />
+    <string name="search_hint" translatable="false" />
+    <string name="title_activity_retrofir" translatable="false">Retrofir</string>
+
+    //blank fragment
+    <string name="greeting">Bienvenido a tu app de libros</string>
+    <string name="user_name">Nombre de usuario</string>
+    <string name="password">contraseña</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="sign_up1">¿No tienes cuenta?. Regístrate aquí.</string>
+
+    //Regist Fragment
+    <string name="sign_up2">Registro de Usuarios</string>
+    <string name="sign_up3">Registrar</string>
+    <string name="return_to">Vuelve a la pantalla de logeo</string>
+
+    //SearchFragment
+    <string name="Book_Tittle">Titulo del libro.</string>
+    <string name="Info_author">Información sobre el autor</string>
+    <string name="Search_book">Buscar libro.</string>
+    <string name="Book_Number">Introduzca numero</string>
+    <string name="Web_Search">Buscar en la web</string>
+    <string name="Save_book">Guardar libro</string>
+
+    //authoractivity
+    <string name="Author_name">Nombre del autor</string>
+    <string name="date_of_birth">Fecha de nacimiento</string>
+    <string name="Biography">Biografia</string>
+
+    //foro
+
+
+
+
+
+
+
 </resources>

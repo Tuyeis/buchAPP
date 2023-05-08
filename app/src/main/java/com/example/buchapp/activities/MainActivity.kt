@@ -1,10 +1,17 @@
-package com.example.buchapp.ui.activities
+package com.example.buchapp.activities
 
-import androidx.appcompat.app.AppCompatActivity
+
+
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import com.example.buchapp.data.BuchMemoDatasource
 import com.example.buchapp.databinding.ActivityMainBinding
-import com.example.buchapp.ui.data.BuchMemoDatasource
+
+
+
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +23,9 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         datasource = BuchMemoDatasource(this)
+
+
+
 
     }
     override  fun onStart(){

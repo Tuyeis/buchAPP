@@ -1,4 +1,4 @@
-package com.example.buchapp.ui.fragments.main
+package com.example.buchapp.fragments.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,8 +10,8 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.buchapp.R
 import com.example.buchapp.databinding.FragmentRegistBinding
-import com.example.buchapp.ui.activities.Bucher_Liste
-import com.example.buchapp.ui.data.BuchMemoDatasource
+import com.example.buchapp.activities.Bucher_Liste
+import com.example.buchapp.data.BuchMemoDatasource
 
 
 class RegistFragment : Fragment() {
@@ -34,10 +34,17 @@ class RegistFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        returnBtn()
+        register()
+    }
+    private fun returnBtn(){
         binding.tvVolver.setOnClickListener {
 
             findNavController().navigate(R.id.action_registFragment_to_blankFragment)
         }
+    }
+    private fun register()
+    {
         binding.btnRegistrar.setOnClickListener{
 
             val exist : Boolean = datasource.getUsuario(binding.etUserName.text.toString(),binding.etPass.text.toString())
